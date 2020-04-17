@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson7</title>
+    <style>
+        #text{
+            height: 30px;
+            background-color: tomato;
+        }
+
+        #myDropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #myDropdown {
+            display: none;
+            position: absolute;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <p>завдання № 1,2 </p>
+    <div id="text"></div>
+    <button class="button">BUTTON </button><br><br>
+
+    <p>завдання № 3 </p>
+
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age"><br>
+    <input class="input" type="submit" value="Submit"><br><br>
+
+    <p>завдання № 4 </p>
+
+    <div class="dropdown">
+        <button  class="dropbtn">МЕНЮ</button>
+        <div id="myDropdown">
+            <a href="#">Посилання 1</a>
+            <a href="#">Посилання 2</a>
+            <a href="#">Посилання 3</a>
+        </div>
+    </div><br><br>
+
+    <p>завдання № 5 </p>
+
+    <div id="comment">
+
+    </div><br><br>
+
+    <p>завдання № 6 </p>
+
+    <form  action="#" name="form1">
+        <input type="email" id="email" placeholder="Enter email" name="email">
+        <input type="password" id="pwd" placeholder="Enter password" name="pswd">
+    </form>
+    <form  action="#" name="form2">
+        <input type="number" id="number" placeholder="Enter number" name="number">
+        <input type="text" id="text1" placeholder="Enter text" name="text1">
+    </form>
+    <button id="formbtn" type="submit">Відобразити в консольці</button><hr><br>
+
+    <p>завдання № 7,8 </p>
+    <form  action="#" name="formTable">
+        <input type="number" id="numberRov" placeholder="Enter number of row" name="numberRov">
+        <input type="number" id="numberCol" placeholder="Enter number of colum" name="numberCol">
+        <input type="text" id="idOfEl" placeholder="Enter id of div elem" name="idOfEl" value="divForTadle">
+    </form><br>
+    <button id="tablebtn" type="submit">Відобразити супертаблицю</button><br><br>
+
+    <div id="divForTadle"></div><br><br>
+
+    <p>завдання № 9 </p>
+<!--    <div class="slideshow-container">-->
+<!--        <div class="mySlides1">-->
+<!--            <img src="https://cssslider.com/sliders/demo-17/data1/images/picjumbo.com_hnck0391.jpg" style="width:100%">-->
+<!--        </div>-->
+
+<!--        <div class="mySlides1">-->
+<!--            <img src="https://demo.smartaddons.com/extensions/joomla17/cache/mod_sj_content_slider/2c04826e09a2d5e19101b62a6843ba68.jpeg" style="width:100%">-->
+<!--        </div>-->
+
+<!--        <div class="mySlides1">-->
+<!--            <img src="https://www.tutorialswebsite.com/demo/how-to-create-bootstrap-carousel-slider/images/banner3.jpg" style="width:100%">-->
+<!--        </div>-->
+
+<!--        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>-->
+<!--        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>-->
+<!--    </div><br><br>-->
+
+
+    <p>завдання № 10 </p>
+
+    <input type="text" id="checkWord" placeholder="Enter word" name="checkWord">
+    <button id="checkWordbtn" type="submit">перевірити</button><br><br>
+
+
+    <p>завдання № 11 </p>
+
+    <input type="text" id="checkSentance" placeholder="Enter sentanse" name="checkSentance">
+    <button id="checkSentancebtn" type="submit">перевірити рядок</button><br><br>
+
+    <p>завдання № 12 </p>
+
+    <div id="content"></div>
+    <h1>Правила бойцовского клуба</h1>
+    <div id="wrap">
+        <div id="linkForRules"></div>
+        <div class="rules rule1">
+            <h2>  Первое правило Бойцовского клуба.</h2>
+            <p>Никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule2">
+            <h2>Второе правило Бойцовского клуба.</h2>
+            <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule3">
+            <h2>Третье правило Бойцовского клуба.</h2>
+            <p>В схватке участвуют только двое.</p>
+        </div>
+        <div class="rules rule4">
+            <h2>Четвертое правило Бойцовского клуба.</h2>
+            <p>Не более одного поединка за один раз.</p>
+        </div>
+
+        <div class="rules rule5">
+            <h2>Пятое правило Бойцовского клуба.</h2>
+            <p>Бойцы сражаются без обуви и голые по пояс.</p>
+        </div>
+        <div class="rules rule6">
+            <h2>Шестое правило Бойцовского клуба.</h2>
+            <p>Поединок продолжается столько, сколько потребуется.</p>
+        </div>
+        <div class="rules rule7">
+            <h2>Седьмое правило Бойцовского клуба.</h2>
+            <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
+                окончен.</p>
+        </div>
+        <div class="rules rule8">
+            <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+            <p>Новичок обязан принять бой.</p>
+        </div>
+    </div><hr>
+
+    <p>завдання № 13 </p>
+
+    <div id="resolt"></div>
+    <input type="checkbox" id="check1"  name="check1">
+    <label for="check1">Пользователи со статусом false</label><br>
+    <input type="checkbox" id="check2"  name="check2">
+    <label for="check2">Пользователи старше 29 лет включительно</label><br>
+    <input type="checkbox" id="check3"  name="check3">
+    <label for="check3">Пользователи у кого город киев</label><br>
+
+<script src="scriptL7.js"> </script>
+</body>
+</html>
