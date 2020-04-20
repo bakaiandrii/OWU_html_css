@@ -42,13 +42,24 @@
             user-select: none;
         }
 
-        /* Position the "next button" to the right */
         .next {
             right: 0;
             border-radius: 3px 0 0 3px;
         }
-
-
+        #btn{
+            height: 50px;
+        }
+        .prevEl, .nextEl {
+            cursor: pointer;
+            top: 50%;
+            width: auto;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            padding: 5px;
+        }
 
 
     </style>
@@ -104,22 +115,22 @@
     <div id="divForTadle"></div><br><br>
 
     <p>завдання № 9 </p>
-<!--    <div class="slideshow-container">-->
-<!--        <div class="mySlides1">-->
-<!--            <img src="https://cssslider.com/sliders/demo-17/data1/images/picjumbo.com_hnck0391.jpg" style="width:100%">-->
-<!--        </div>-->
+    <div class="slideshow-container">
+        <div class="mySlides1">
+            <img src="https://cssslider.com/sliders/demo-17/data1/images/picjumbo.com_hnck0391.jpg" style="width:100%">
+        </div>
 
-<!--        <div class="mySlides1">-->
-<!--            <img src="https://demo.smartaddons.com/extensions/joomla17/cache/mod_sj_content_slider/2c04826e09a2d5e19101b62a6843ba68.jpeg" style="width:100%">-->
-<!--        </div>-->
+        <div class="mySlides1">
+            <img src="https://demo.smartaddons.com/extensions/joomla17/cache/mod_sj_content_slider/2c04826e09a2d5e19101b62a6843ba68.jpeg" style="width:100%">
+        </div>
 
-<!--        <div class="mySlides1">-->
-<!--            <img src="https://www.tutorialswebsite.com/demo/how-to-create-bootstrap-carousel-slider/images/banner3.jpg" style="width:100%">-->
-<!--        </div>-->
+        <div class="mySlides1">
+            <img src="https://www.tutorialswebsite.com/demo/how-to-create-bootstrap-carousel-slider/images/banner3.jpg" style="width:100%">
+        </div>
 
-<!--        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>-->
-<!--        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>-->
-<!--    </div><br><br>-->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div><br><br>
 
 
     <p>завдання № 10 </p>
@@ -184,6 +195,14 @@
     <label for="check2">Пользователи старше 29 лет включительно</label><br>
     <input type="checkbox" id="check3"  name="check3">
     <label for="check3">Пользователи у кого город киев</label><br>
+
+
+    <p>завдання № 14 *** </p>
+    <div id="btn">
+        <a class="prevEl" onclick="plusEv(-1)">&#10094;</a>
+        <a class="nextEl" onclick="plusEv(1)">&#10095;</a>
+    </div>
+    <div id="dom"></div>
 
 <script src="scriptL7.js"> </script>
 </body>

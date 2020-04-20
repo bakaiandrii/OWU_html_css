@@ -1,11 +1,11 @@
 // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
 
-// const elem = document.getElementsByClassName('button')
-// const clickDelete = elem[0];
-// clickDelete.onclick = () => {
-//     const elementById = document.getElementById('text');
-//     elementById.style.display = 'none';
-// };
+const elem = document.getElementsByClassName('button');
+const clickDelete = elem[0];
+clickDelete.onclick = () => {
+    const elementById = document.getElementById('text');
+    elementById.style.display = 'none';
+};
 
 //    - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
 
@@ -19,27 +19,27 @@
 // з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
 
 
-// const submit = document.getElementsByClassName('input');
-//
-// submit[0].addEventListener('click', () => {
-//     let age = document.getElementById('age');
-//     if (age.value < 18){
-//         alert('You is to younger!!!')
-//     }
-// });
+const submit = document.getElementsByClassName('input');
+
+submit[0].addEventListener('click', () => {
+    let age = document.getElementById('age');
+    if (age.value < 18){
+        alert('You is to younger!!!')
+    }
+});
 
 // - Создайте меню, которое раскрывается/сворачивается при клике
 
-// const myDropdown = document.getElementById('myDropdown');
-// const dropBtn = document.getElementsByClassName('dropbtn');
-//
-// dropBtn[0].onclick = () => {
-//     if(myDropdown.style.display === 'block'){
-//         myDropdown.style.display = 'none';
-//     }else {
-//         myDropdown.style.display = 'block';
-//     }
-// };
+const myDropdown = document.getElementById('myDropdown');
+const dropBtn = document.getElementsByClassName('dropbtn');
+
+dropBtn[0].onclick = () => {
+    if(myDropdown.style.display === 'block'){
+        myDropdown.style.display = 'none';
+    }else {
+        myDropdown.style.display = 'block';
+    }
+};
 
 // - Создать список комментариев , пример объекта коментария -
 // {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
@@ -114,25 +114,31 @@ tableBtn.onclick = () => {
 };
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
-// var slideIndex = [1,1];
-// var slideId = ["mySlides1", "mySlides2"]
-// showSlides(1, 0);
-// showSlides(1, 1);
-//
-// function plusSlides(n, no) {
-//     showSlides(slideIndex[no] += n, no);
-// }
-//
-// function showSlides(n, no) {
-//     var i;
-//     var x = document.getElementsByClassName(slideId[no]);
-//     if (n > x.length) {slideIndex[no] = 1}
-//     if (n < 1) {slideIndex[no] = x.length}
-//     for (i = 0; i < x.length; i++) {
-//         x[i].style.display = "none";
-//     }
-//     x[slideIndex[no]-1].style.display = "block";
-// }
+let sInd =1;
+showSlides(sInd);
+
+function plusSlides(n){
+    showSlides(sInd += n);
+}
+
+function curSlides(n){
+    showSlides(sInd = n);
+}
+function showSlides(n){
+    let i;
+    const slides = document.getElementsByClassName('mySlides1');
+
+    if (n > slides.length){
+        sInd = 1;
+    }
+    if (n < 1){
+        sInd = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    slides[sInd -1].style.display = 'block';
+}
 
 
 // - Сворити масив не цензцрних слів.
@@ -184,7 +190,7 @@ let ind = 0;
 for (const el of elH2) {
     const a = document.createElement('a');
     a.setAttribute('href', `#${ind += 1}`);
-    a.innerText = `${el.innerText}`
+    a.innerText = `${el.innerText}`;
     a.style.display = 'block';
     linkForRules.appendChild(a);
 }
@@ -192,23 +198,23 @@ ind = 0;
 for (const elem of elp) {
     const a = document.createElement('a');
     a.setAttribute('name', `${ind += 1}`);
-    a.innerText = `${elem.innerText}`
+    a.innerText = `${elem.innerText}`;
     elem.innerText = '';
     elem.appendChild(a);
 }
 // -- взять массив пользователей
 let usersWithAddress = [
-    {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-    {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-    {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-    {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-    {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-    {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-    {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-    {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-    {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-    {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-    {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+    {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+    {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+    {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+    {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+    {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+    {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+    {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+    {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+    {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id: 11, name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
 ];
 // Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
 // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
@@ -219,25 +225,65 @@ const resolt = document.getElementById('resolt');
 const check1 = document.getElementById('check1');
 const check2 = document.getElementById('check2');
 const check3 = document.getElementById('check3');
-let chek = [0,0,0];
-check1.onclick = function () {
-    if (check1.checked){chek[0] = 1;
-        console.log(chek);
+function handleUser(usersWithAddress) {
+    for (const user of usersWithAddress) {
+        const div = document.createElement('div');
+        div.innerText = JSON.stringify(user);
+        resolt.appendChild(div);
     }
 }
+handleUser(usersWithAddress);
+check1.onclick = function () {
+    resolt.innerText = '';
+    if (check1.checked) {
+        for (const user of usersWithAddress) {
+            if (!user.status) {
+                const div = document.createElement('div');
+                div.innerText = JSON.stringify(user);
+                resolt.appendChild(div);
+            }
+        }
+    }else {
+        handleUser(usersWithAddress);
+    }
+
+};
 check2.onclick = function () {
-    if (check2.checked){chek[1] = 1;}
-}
+    resolt.innerText = '';
+    if (check2.checked) {
+        for (const user of usersWithAddress) {
+            if (user.age >= 29) {
+                const div = document.createElement('div');
+                div.innerText = JSON.stringify(user);
+                resolt.appendChild(div);
+            }
+        }
+    }else {
+        handleUser(usersWithAddress);
+    }
+};
 check3.onclick = function () {
-    if (check3.checked){chek[2] = 1;}
-}
+    resolt.innerText = '';
+    if (check3.checked) {
+        for (const user of usersWithAddress) {
+            if (user.address.city === 'Kyiv') {
+                const div = document.createElement('div');
+                div.innerText = JSON.stringify(user);
+                resolt.appendChild(div);
+            }
+        }
+    }else {
+        handleUser(usersWithAddress);
+    }
+};
 
 
-
-// *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
+// *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает
+// в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
-//
-//
+
+
+
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
