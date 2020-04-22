@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //
+    // Мають бути функції, які є асинхронними (мають сетТаймАут або сетІнтервал) які описують якусь певну вашу дію в день.
+    //     Наприклад функція прокинутись триває 1с, поїсти - 0,5с. Доїхати до роботи - 2с. Пообідати - 1с.
+    //     Зробити таких функцій в районі 10 штук. Функція має приймати параметр, який буде відповідати за успішне чи не
+    // успішне виконання.
+    //     Далі виконати їх в тій послідовності, в якій ви виконуєте їх у свій звичайний день.
+    //
+    //     Тобто, як приклад
+    // Прокинулись - Поснідали - Зібрались - ПОїхали на роботу - Працююєте - Пообідали - Працюєте - Випили кави - Працюєте
+    // - Поїхали до дому - Повчились - Лягли спати.
+    //
+    //     Кожна функція має мати якесь успіше або не успішне виконання. Тобто можливий варіант, що при виконанні функції
+    // доїхати на роботу ви стали в заторі і не попали на роботу. Або йдучи на обід ви забули гаманець і лишились голодні.
+    // let energy = 0;
+    //
+    // function getUp(energyLevel, cb) {
+    //     setTimeout(() => {
+    //         if (energyLevel) {
+    //             energy = 1000;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Go sleep');
+    //         }
+    //     }, 2000);
+    // }
+    //
+    // function hadBreakfast(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy += 200;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Get up!');
+    //         }
+    //     }, 1000);
+    // }
+    //
+    // function toDressUp(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy -= 100;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Go breakfast!');
+    //         }
+    //     }, 500)
+    // }
+    //
+    // function goToWork(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy -= 100;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Go toDressUp');
+    //         }
+    //     }, 1500)
+    // }
+    //
+    // function workAtWork(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy -= 300;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Go toDressUp');
+    //         }
+    //     }, 2000)
+    // }
+    //
+    // function hadDinner(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy += 300;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Get up!');
+    //         }
+    //     }, 500);
+    // }
+    //
+    // function hadCoffe(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy += 100;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('hadCoffe on more!!!');
+    //         }
+    //     }, 5000);
+    // }
+    //
+    // function goToHome(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy -= 100;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Go toDressUp');
+    //         }
+    //     }, 1500)
+    // }
+    //
+    // function hadLearningTime(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy -= 200;
+    //             cb(null, energy);
+    //         } else {
+    //             console.log('Go toDressUp');
+    //         }
+    //     }, 2000)
+    // }
+    //
+    // function goToSleep(energy, cb) {
+    //     setTimeout(() => {
+    //         if (energy) {
+    //             energy -= 100;
+    //             cb(true, energy);
+    //         } else {
+    //             console.log('Go to sleep!');
+    //         }
+    //     }, 1500)
+    // }
+    //
+    // getUp(true, (err, energy) => {
+    //     if (err) {
+    //         console.log('errrrr');
+    //     } else {
+    //         console.log(`Great you full of ENERGY ${energy}`);
+    //     }
+    //     hadBreakfast(energy, (err, energy) => {
+    //         if (err) {
+    //             console.log('errrrr');
+    //         } else {
+    //             console.log(`Tasty breakfast you increaced ${energy}`);
+    //         }
+    //         toDressUp(energy, (err, energy) => {
+    //             if (err) {
+    //                 console.log('errrrr');
+    //             } else {
+    //                 console.log(`Dressing take -${energy}`);
+    //             }
+    //             goToWork(energy, (err, energy) => {
+    //                 if (err) {
+    //                     console.log('errrrr');
+    //                 } else {
+    //                     console.log(`Going to the work ${energy}`);
+    //                 }
+    //                 workAtWork(energy, (err, energy) => {
+    //                     if (err) {
+    //                         console.log('errrrr');
+    //                     } else {
+    //                         console.log(`Work Work Work GOOD work ${energy}`);
+    //                     }
+    //                     hadDinner(energy, (err, energy) => {
+    //                         if (err) {
+    //                             console.log('errrrr');
+    //                         } else {
+    //                             console.log(`Great Dinner ${energy}`);
+    //                         }
+    //                         workAtWork(energy, (err, energy) => {
+    //                             if (err) {
+    //                                 console.log('errrrr');
+    //                             } else {
+    //                                 console.log(`Work Work Work GOOD work ${energy}`);
+    //                             }
+    //                             hadCoffe(energy, (err, energy) => {
+    //                                 if (err) {
+    //                                     console.log('errrrr');
+    //                                 } else {
+    //                                     console.log(`Cooooooofeeeeeeeee ${energy}`);
+    //                                 }
+    //                                 workAtWork(energy, (err, energy) => {
+    //                                     if (err) {
+    //                                         console.log('errrrr');
+    //                                     } else {
+    //                                         console.log(`Work Work Work GOOD work ${energy}`);
+    //                                     }
+    //                                     goToHome(energy, (err, energy) => {
+    //                                         if (err) {
+    //                                             console.log('errrrr');
+    //                                         } else {
+    //                                             console.log(`Going HOME ${energy}`);
+    //                                         }
+    //                                         hadLearningTime(energy, (err, energy) => {
+    //                                             if (err) {
+    //                                                 console.log('errrrr');
+    //                                             } else {
+    //                                                 console.log(`Learning with OWU ${energy}`);
+    //                                             }
+    //                                             goToSleep(energy, (err, energy) => {
+    //                                                 if (err) {
+    //                                                     console.log(`Your have Energy${energy} go LEARNING!`);
+    //                                                 } else {
+    //                                                     console.log(`Get to Sleeeeeeeping ${energy}`);
+    //                                                 }
+    //                                             });
+    //                                         });
+    //                                     });
+    //                                 });
+    //                             });
+    //                         });
+    //                     });
+    //                 });
+    //             });
+    //         });
+    //     });
+    // });
+
+<!--    let energy = 0;-->
+
+<!--    function getUp(energyLevel) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energyLevel) {-->
+<!--                    energy = 1000;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Go sleep');-->
+<!--                }-->
+<!--            }, 2000);-->
+<!--        })-->
+<!--    }-->
+
+<!--    function hadBreakfast(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy > 0) {-->
+<!--                    energy += 200;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Get up!');-->
+<!--                }-->
+<!--            }, 1000);-->
+<!--        })-->
+<!--    }-->
+
+<!--    function toDressUp(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy > 0) {-->
+<!--                    energy -= 100;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Go breakfast!');-->
+<!--                }-->
+<!--            }, 500)-->
+<!--        })-->
+<!--    }-->
+
+<!--    function goToWork(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy > 0) {-->
+<!--                    energy -= 100;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Go toDressUp');-->
+<!--                }-->
+<!--            }, 1500)-->
+<!--        })-->
+<!--    }-->
+
+<!--    function workAtWork(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy > 0) {-->
+<!--                    energy -= 300;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Go toDressUp');-->
+<!--                }-->
+<!--            }, 2000)-->
+<!--        })-->
+<!--    }-->
+
+<!--    function hadDinner(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy > 0) {-->
+<!--                    energy += 300;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Get up!');-->
+<!--                }-->
+<!--            }, 500);-->
+<!--        })-->
+<!--    }-->
+
+<!--    function hadCoffe(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy > 0) {-->
+<!--                    energy += 100;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('hadCoffe on more!!!');-->
+<!--                }-->
+<!--            }, 5000);-->
+<!--        })-->
+<!--    }-->
+
+<!--    function goToHome(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy) {-->
+<!--                    energy -= 100;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Go toDressUp');-->
+<!--                }-->
+<!--            }, 1500)-->
+<!--        })-->
+<!--    }-->
+
+<!--    function hadLearningTime(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy) {-->
+<!--                    energy -= 200;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject('Go toDressUp');-->
+<!--                }-->
+<!--            }, 2000)-->
+<!--        })-->
+<!--    }-->
+
+<!--    function goToSleep(energy) {-->
+<!--        return new Promise((resolve, reject) => {-->
+<!--            setTimeout(() => {-->
+<!--                if (energy < 0) {-->
+<!--                    energy -= 100;-->
+<!--                    resolve(energy);-->
+<!--                } else {-->
+<!--                    reject(`Your have Energy${energy} go LEARNING!`);-->
+<!--                }-->
+<!--            }, 1500)-->
+<!--        })-->
+<!--    }-->
+
+<!--    getUp(true)-->
+<!--        .then((data) => {-->
+<!--            console.log(`Great I get up! ${data}`);-->
+<!--            return hadBreakfast(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Great you full of ENERGY ${data}`);-->
+<!--            return toDressUp(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Tasty breakfast you increaced ${energy}`);-->
+<!--            return goToWork(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Going to the work ${energy}`);-->
+<!--            return workAtWork(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Work Work Work GOOD work ${energy}`);-->
+<!--            return hadDinner(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Great Dinner ${energy}`);-->
+<!--            return workAtWork(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Work Work Work GOOD work ${energy}`);-->
+<!--            return hadCoffe(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Cooooooofeeeeeeeee ${energy}`);-->
+<!--            return workAtWork(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Work Work Work GOOD work ${energy}`);-->
+<!--            return goToHome(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Going HOME ${energy}`);-->
+<!--            return hadLearningTime(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Learning with OWU ${energy}`);-->
+<!--            return goToSleep(data)-->
+<!--        })-->
+<!--        .then((data) => {-->
+<!--            console.log(`Get to Sleeeeeeeping ${energy}`);-->
+<!--        })-->
+<!--        .catch((err) => {-->
+<!--            console.log(err);-->
+<!--        })-->
+
+
+
+</script>
+</body>
+</html>
