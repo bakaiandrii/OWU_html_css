@@ -25,76 +25,76 @@
     // function getUp(energyLevel, cb) {
     //     setTimeout(() => {
     //         if (energyLevel) {
-    //             energy = 1000;
+    //             energy = 500;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Go sleep');
+    //             cb('no energy((( Go sleep');
     //         }
     //     }, 2000);
     // }
     //
     // function hadBreakfast(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy += 200;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Get up!');
+    //            cb('no energy((( You need breakfast!');
     //         }
     //     }, 1000);
     // }
     //
     // function toDressUp(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy -= 100;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Go breakfast!');
+    //             cb('no energy(((');
     //         }
     //     }, 500)
     // }
     //
     // function goToWork(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy -= 100;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Go toDressUp');
+    //             cb('no energy((( dont go to job');
     //         }
     //     }, 1500)
     // }
     //
     // function workAtWork(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy -= 300;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Go toDressUp');
+    //             cb('no energy((( eat something');
     //         }
     //     }, 2000)
     // }
     //
     // function hadDinner(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy += 300;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Get up!');
+    //             cb('no energy(((eat something!');
     //         }
     //     }, 500);
     // }
     //
     // function hadCoffe(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy += 100;
     //             cb(null, energy);
     //         } else {
-    //             console.log('hadCoffe on more!!!');
+    //             cb('hadCoffe on more!!!');
     //         }
     //     }, 5000);
     // }
@@ -105,104 +105,104 @@
     //             energy -= 100;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Go toDressUp');
+    //             cb('no energy((( eat something ');
     //         }
     //     }, 1500)
     // }
     //
     // function hadLearningTime(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy -= 200;
     //             cb(null, energy);
     //         } else {
-    //             console.log('Go toDressUp');
+    //             cb('no energy((( you mast find energy and learning');
     //         }
     //     }, 2000)
     // }
     //
     // function goToSleep(energy, cb) {
     //     setTimeout(() => {
-    //         if (energy) {
+    //         if (energy > 0) {
     //             energy -= 100;
-    //             cb(true, energy);
+    //             cb(null, energy);
     //         } else {
-    //             console.log('Go to sleep!');
+    //             cb('no energy((( Go to sleep!');
     //         }
     //     }, 1500)
     // }
     //
     // getUp(true, (err, energy) => {
     //     if (err) {
-    //         console.log('errrrr');
+    //         console.log(err);
     //     } else {
     //         console.log(`Great you full of ENERGY ${energy}`);
     //     }
     //     hadBreakfast(energy, (err, energy) => {
     //         if (err) {
-    //             console.log('errrrr');
+    //             console.log(err);
     //         } else {
     //             console.log(`Tasty breakfast you increaced ${energy}`);
     //         }
     //         toDressUp(energy, (err, energy) => {
     //             if (err) {
-    //                 console.log('errrrr');
+    //                 console.log(err);
     //             } else {
     //                 console.log(`Dressing take -${energy}`);
     //             }
     //             goToWork(energy, (err, energy) => {
     //                 if (err) {
-    //                     console.log('errrrr');
+    //                     console.log(err);
     //                 } else {
     //                     console.log(`Going to the work ${energy}`);
     //                 }
     //                 workAtWork(energy, (err, energy) => {
     //                     if (err) {
-    //                         console.log('errrrr');
+    //                         console.log(err);
     //                     } else {
     //                         console.log(`Work Work Work GOOD work ${energy}`);
     //                     }
     //                     hadDinner(energy, (err, energy) => {
     //                         if (err) {
-    //                             console.log('errrrr');
+    //                             console.log(err);
     //                         } else {
     //                             console.log(`Great Dinner ${energy}`);
     //                         }
     //                         workAtWork(energy, (err, energy) => {
     //                             if (err) {
-    //                                 console.log('errrrr');
+    //                                 console.log(err);
     //                             } else {
     //                                 console.log(`Work Work Work GOOD work ${energy}`);
     //                             }
     //                             hadCoffe(energy, (err, energy) => {
     //                                 if (err) {
-    //                                     console.log('errrrr');
+    //                                     console.log(err);
     //                                 } else {
     //                                     console.log(`Cooooooofeeeeeeeee ${energy}`);
     //                                 }
     //                                 workAtWork(energy, (err, energy) => {
     //                                     if (err) {
-    //                                         console.log('errrrr');
+    //                                         console.log(err);
     //                                     } else {
     //                                         console.log(`Work Work Work GOOD work ${energy}`);
     //                                     }
     //                                     goToHome(energy, (err, energy) => {
     //                                         if (err) {
-    //                                             console.log('errrrr');
+    //                                             console.log(err);
     //                                         } else {
     //                                             console.log(`Going HOME ${energy}`);
     //                                         }
     //                                         hadLearningTime(energy, (err, energy) => {
     //                                             if (err) {
-    //                                                 console.log('errrrr');
+    //                                                 console.log(err);
     //                                             } else {
     //                                                 console.log(`Learning with OWU ${energy}`);
     //                                             }
     //                                             goToSleep(energy, (err, energy) => {
     //                                                 if (err) {
-    //                                                     console.log(`Your have Energy${energy} go LEARNING!`);
+    //                                                     console.log(err);
     //                                                 } else {
-    //                                                     console.log(`Get to Sleeeeeeeping ${energy}`);
+    //                                                     console.log(`Your have Energy${energy} go LEARNING!`);
     //                                                 }
     //                                             });
     //                                         });
